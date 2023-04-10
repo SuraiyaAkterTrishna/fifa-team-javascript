@@ -1,3 +1,6 @@
 .select>ul>li{
     margin-bottom: 20px;
 }
+.select-btn[disabled] {
+    background-color: gray;
+}
