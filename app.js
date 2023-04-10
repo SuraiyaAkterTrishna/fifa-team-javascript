@@ -14,10 +14,17 @@ selectBtns.forEach((selectBtn) => {
       li.innerText = playerName;
       ul.appendChild(li);
       allPlayerNumber.push(li);
-      console.log(allPlayerNumber);
     }
     else {
         alert('You can only select up to five players!');
     }
   });
+});
+document.getElementById('calculate-btn').addEventListener('click', function(){
+    const playerNumber = allPlayerNumber.length;
+    const perPlayerField = document.getElementById('per-player');
+    const perPlayerCost = perPlayerField.value;
+    const playerExpenses = playerNumber * perPlayerCost;
+    const playerExpensesElement = document.getElementById('player-expenses');
+    playerExpensesElement.innerText = playerExpenses;
 });
