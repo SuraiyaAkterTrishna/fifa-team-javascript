@@ -20,6 +20,8 @@ selectBtns.forEach((selectBtn) => {
     }
   });
 });
+
+// player expenses calculate 
 document.getElementById('calculate-btn').addEventListener('click', function(){
     const playerNumber = allPlayerNumber.length;
     const perPlayerField = document.getElementById('per-player');
@@ -27,4 +29,22 @@ document.getElementById('calculate-btn').addEventListener('click', function(){
     const playerExpenses = playerNumber * perPlayerCost;
     const playerExpensesElement = document.getElementById('player-expenses');
     playerExpensesElement.innerText = playerExpenses;
+    perPlayerField.value = '';
 });
+// total expenses calculate 
+document.getElementById('total').addEventListener('click', function(){
+    const playerExpensesElement = document.getElementById('player-expenses');
+    const playerExpensesString = playerExpensesElement.innerText;
+    const playerExpenses = parseInt(playerExpensesString);
+    const managerCostField = document.getElementById('manager');
+    const managerCostString = managerCostField.value;
+    const managerCost = parseInt(managerCostString)
+    const coachCostField = document.getElementById('coach');
+    const coachCostString = coachCostField.value;
+    const coachCost = parseInt(coachCostString);
+    const totalExpenses = playerExpenses + managerCost + coachCost;
+    const totalExpensesElement = document.getElementById('total-expenses');
+    totalExpensesElement.innerText = totalExpenses;
+    managerCostField.value = '';
+    coachCostField.value = '';
+})
